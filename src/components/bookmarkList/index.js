@@ -73,7 +73,6 @@ const mapStateToProps = state => {
 const mapDispachToProps = dispatch => {
     return {
         bookmark: (id) => dispatch({ type: "BOOKMARK", value: id }),
-        checkBookmarked: (id) => dispatch({ type: "CHECK", value: id }),
         unBookmark: (id) => dispatch({ type: "REMOVE", value: id })
     };
 };
