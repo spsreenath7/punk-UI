@@ -8,19 +8,19 @@ import React, { Component } from 'react';
     handleTextChange = (e) => {
         this.handleChange( e, 'search', e.target.value);
     };
-    handleSortChange = (e) => {
+    handleCountChange = (e) => {
         this.handleChange(e, 'sort', e.target.value);
     };
 
     render() {
         return (
             <div className="col-md-10">
-                <input type="text" placeholder="Search" 
+                <input type="text" placeholder="Search by name" 
                     value={this.props.filterText}
                     onChange={this.handleTextChange} />
-                <span> Sort by: </span>
+                <span> Items per page: </span>
                 <select id="sort" value={this.props.order } 
-                    onChange={this.handleSortChange} >
+                    onChange={this.handleCountChange} >
                     <option value="7">7</option>
                     <option value="12">12</option>
                 </select>
