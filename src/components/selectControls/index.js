@@ -19,10 +19,11 @@ import React, { Component } from 'react';
                     value={this.props.filterText}
                     onChange={this.handleTextChange} />
                 <span> Items per page: </span>
-                <select id="sort" value={this.props.order } 
+                <select id="pageCount" value={this.props.order } 
                     onChange={this.handleCountChange} >
-                    <option value="7">7</option>
-                    <option value="12">12</option>
+                    <option value="20">default</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
                 </select>
             </div>
         );

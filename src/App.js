@@ -10,22 +10,9 @@ class App extends Component {
 
   handleChange = async (type, value) => {
     try {
-      const resp = await api.getAll('https://api.punkapi.com/v2/beers?page=1&per_page=' + value);
-
-      const items = resp;
-      const copy = [];
-      console.log("Inside com did mont no exception");
-      items.forEach(function (item) {
-        copy.push({
-          'age': 40,
-          'id': item.id.toString(),
-          'imageUrl': item.image_url,
-          'name': item.name,
-          'snippet': item.tagline
-        });
-      });
+      const resp = await api.getAllBeers('https://api.punkapi.com/v2/beers?page=1&per_page=' + value);
       this.setState({
-        beerList: copy
+        beerList: resp
       });
 
     } catch (e) {
@@ -35,22 +22,9 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      const resp = await api.getAll('https://api.punkapi.com/v2/beers?page=1&per_page=10');
-      console.log("Inside com did mont");
-
-      const items = resp;
-      const copy = [];
-      items.forEach(function (item) {
-        copy.push({
-          'age': 40,
-          'id': item.id.toString(),
-          'imageUrl': item.image_url,
-          'name': item.name,
-          'snippet': item.tagline
-        });
-      });
+      const resp = await api.getAllBeers('https://api.punkapi.com/v2/beers?page=1&per_page=10');
       this.setState({
-        beerList: copy
+        beerList: resp
       });
 
     } catch (e) {
