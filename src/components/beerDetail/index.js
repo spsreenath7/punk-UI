@@ -39,36 +39,40 @@ class BeerDetail extends Component {
         let foodParing = '';
         if (beer.id) {
             foodParing = beer.food_pairing.map(
-                    (food,index) => <i>{food},&nbsp;</i>
-                ) ;
+                (food, index) => <i>{food},&nbsp;</i>
+            );
         }
         return (
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-10">
-                    <div>
-                    <div className="beer-images">
-                        <img src={beer.image_url}
-                            alt={beer.name} className="beer" />
+                        <div>
+                            <div className="beer-images">
+                                <img src={beer.image_url}
+                                    alt={beer.name} className="beer" />
+                            </div>
+                            <h1>{beer.name}</h1>
+                            <p>{beer.description}</p>
+                            {bookmarked ?
+                                <button type="button" class="btn btn-primary" onClick={() => this.props.unBookmark(Number(id))}>&#8594;bookmarked</button> :
+                                <button type="button" class="btn btn-outline-primary" onClick={() => this.props.bookmark(Number(id))}>&#8594;Click here to bookmark</button>
+                            }
+
+                        </div>
                     </div>
-                    <h1>{beer.name}</h1>
-                    <p>{beer.description}</p>
-                    {bookmarked ?
-                        <button type="button" class="btn btn-primary" onClick={() => this.props.unBookmark(Number(id))}>&#8594;bookmarked</button> :
-                        <button type="button" class="btn btn-outline-primary" onClick={() => this.props.bookmark(Number(id))}>&#8594;Click here to bookmark</button>
-                    }
-                    <br />
-                    <h4>Specifications:</h4>
-                    <ul>
-                        <li>First Brewed:<br />&nbsp; <i>{beer.first_brewed}</i></li>
-                        <li>PH value:<br />&nbsp; <i>{beer.ph}</i></li>
-                        <li>Attenuation level:<br />&nbsp; <i>{beer.attenuation_level}</i></li>
-
-                        <li>Food Paring:<br />&nbsp; {foodParing}</li>
-                        <li>Contributer:<br />&nbsp; <i>{beer.contributed_by}</i></li>
-                    </ul>
-
                 </div>
+                <div className="row">
+                    <div className="col-md-10">
+                        <br />
+                        <h4>Specifications:</h4>
+                        <ul>
+                            <li>First Brewed:<br />&nbsp; <i>{beer.first_brewed}</i></li>
+                            <li>PH value:<br />&nbsp; <i>{beer.ph}</i></li>
+                            <li>Attenuation level:<br />&nbsp; <i>{beer.attenuation_level}</i></li>
+
+                            <li>Food Paring:<br />&nbsp; {foodParing}</li>
+                            <li>Contributer:<br />&nbsp; <i>{beer.contributed_by}</i></li>
+                        </ul>
                     </div>
                 </div>
             </div>
